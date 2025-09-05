@@ -1,0 +1,133 @@
+/* ---------- Variables & Base ---------- */
+:root{
+  --bg-1: #dbeafe;  /* very light blue */
+  --bg-2: #bfdbfe;  /* soft blue */
+  --panel: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --accent-blue: #2563eb;
+  --accent-purple: #7c3aed;
+  --glass: rgba(255,255,255,0.6);
+  --radius: 18px;
+  --shadow: 0 8px 20px rgba(16,24,40,0.06);
+  --container: 1100px;
+  font-family: "Inter", "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--text);
+  background: linear-gradient(135deg,var(--bg-1),var(--bg-2));
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- Layout Helpers ---------- */
+.container{max-width:var(--container); margin:0 auto; padding:0 20px}
+.section{padding:64px 0}
+.section.alt{background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.3));}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky; top:0; z-index:50; backdrop-filter: blur(6px); background: rgba(255,255,255,0.5); border-bottom:1px solid rgba(15,23,42,0.03)}
+.nav-inner{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+.brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text)}
+.brand-logo{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid rgba(255,255,255,0.6)}
+.brand-name{font-weight:700}
+.nav-links{display:flex; gap:18px}
+.nav-links a{color:var(--muted); text-decoration:none; font-weight:600}
+.nav-links a:hover{color:var(--text)}
+.menu-toggle{display:none; background:none; border:0; font-size:20px}
+
+/* ---------- HERO ---------- */
+.hero{padding:56px 0}
+.hero-grid{display:grid; grid-template-columns: 1fr 380px; gap:36px; align-items:center}
+.eyebrow{color:var(--muted); font-weight:600; margin:0 0 8px 0}
+.hero-title{font-size:clamp(30px,4vw,44px); margin:0 0 8px 0; line-height:1.02}
+.name{background:linear-gradient(90deg,var(--accent-purple),var(--accent-blue)); -webkit-background-clip:text; background-clip:text; color:transparent}
+.type{font-weight:700; color:var(--accent-purple)}
+.cursor{margin-left:6px; color:var(--accent-blue); animation:blink 1s steps(2,start) infinite}
+@keyframes blink{50%{opacity:0}}
+
+.hero-lede{color:var(--muted); margin:14px 0 18px; max-width:48ch}
+.cta{display:flex; gap:12px; flex-wrap:wrap}
+.btn{display:inline-block; padding:10px 18px; border-radius:999px; text-decoration:none; font-weight:700; box-shadow: var(--shadow)}
+.primary{background:linear-gradient(90deg,var(--accent-blue),var(--accent-purple)); color:white}
+.ghost{background:transparent; color:var(--accent-blue); border:2px solid rgba(37,99,235,0.12)}
+.socials{margin-top:12px; display:flex; gap:12px; color:var(--muted)}
+
+.hero-right{background:var(--glass); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+.photo-wrap{display:grid; place-items:center; margin-bottom:14px}
+.profile{width:170px; height:170px; object-fit:cover; border-radius:50%; border:6px solid white; box-shadow:0 8px 20px rgba(99,102,241,0.08)}
+.hero-list{list-style:none; padding:0; margin:8px 0 0 0; display:grid; gap:8px}
+.hero-list li{color:var(--muted); font-weight:600}
+
+/* ---------- ABOUT ---------- */
+.lead{color:var(--muted); max-width:70ch; margin:14px auto 0; text-align:center}
+
+/* Profile Section */
+.profile-card {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  max-width: 340px;
+  margin: 0 auto;
+}
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid white;
+  box-shadow: 0 8px 20px rgba(37,99,235,0.2);
+  margin-bottom: 16px;
+}
+.profile-card h3 {
+  margin: 10px 0 6px;
+  font-weight: 700;
+}
+.profile-card p {
+  margin: 4px 0;
+}
+
+
+/* ---------- SKILLS ---------- */
+.skills-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:18px}
+.skill-card{background:var(--panel); border-radius:12px; padding:14px; box-shadow:var(--shadow)}
+.skill-row{display:flex; justify-content:space-between; font-weight:700; margin-bottom:8px}
+.progress-outer{background:rgba(15,23,42,0.06); border-radius:999px; height:12px; overflow:hidden}
+.progress{height:100%; background:linear-gradient(90deg,var(--accent-blue),var(--accent-purple)); transition:width 900ms ease}
+
+/* ---------- CARDS / SERVICES / PROJECTS ---------- */
+.cards{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
+.card{background:var(--panel); padding:18px; border-radius:12px; box-shadow:var(--shadow); font-weight:700; color:var(--text)}
+.projects-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-top:18px}
+.project{background:var(--panel); padding:18px; border-radius:12px; box-shadow:var(--shadow)}
+
+/* ---------- CONTACT ---------- */
+.contact-grid{display:grid; grid-template-columns:1fr 360px; gap:24px; align-items:start}
+.contact-form{background:var(--panel); padding:18px; border-radius:12px; box-shadow:var(--shadow)}
+.contact-form input,.contact-form textarea{width:100%; padding:10px; border-radius:8px; border:1px solid rgba(15,23,42,0.06); margin-bottom:10px}
+.card.glass{background:var(--glass); padding:16px; border-radius:12px}
+
+/* ---------- FOOTER ---------- */
+.footer{padding:20px 0; text-align:center; background: linear-gradient(90deg, rgba(37,99,235,0.06), rgba(124,58,237,0.04)); color:var(--muted)}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 980px){
+  .hero-grid{grid-template-columns: 1fr 320px}
+  .nav-links{display:none}
+  .menu-toggle{display:block}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .cards{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width: 640px){
+  .hero-grid{grid-template-columns:1fr; gap:22px}
+  .hero-right{order:-1}
+  .contact-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .brand-logo{display:none}
+}
