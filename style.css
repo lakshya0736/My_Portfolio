@@ -131,3 +131,10 @@ body{
   .cards{grid-template-columns:1fr}
   .brand-logo{display:none}
 }
+
+.about .lead {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
